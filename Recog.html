@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Emotion-Detector-Shikan</title>
+  <script defer src="face-api.min.js"></script>
+  <script defer src="script.js"></script>
+  <style type="text/css">
+    #container{
+      margin: 0px auto;
+      width: 720px;
+      height: 560px;
+      border: 10px rgb(27, 174, 219) solid;
+    }
+    #video{
+      background-color: rgb(27, 109, 216);
+    }
+    body {
+      margin: 0;
+      padding: 0;
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: powderblue;
+    }
+
+    canvas {
+      position: absolute;
+    }
+    button{
+      position:absolute; 
+   	   Smargin-left:47%;   
+   	width:150px;
+   	bottom:-20px;
+    }
+  </style>
+</head>
+<body>
+  <div id="container">
+    <video id="video" width="720" height="560" autoplay muted></video>
+  </div>
+  
+   
+      <button><a href="index.html">Home</a></button>
+
+   
+
+</body>
+</html>
