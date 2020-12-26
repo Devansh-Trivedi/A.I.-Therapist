@@ -3,13 +3,17 @@
 <html>
 
 	<head>
+
+
+		
 		<meta charset="UTF-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	    <meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="shortcut icon" href="img/season-change.jpg" type="image/x-icon">
 		<title>Shikan-The AI Therapist</title>
 
-		
+		<script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
+
 		<link href='http://fonts.googleapis.com/css?family=Abel' rel='stylesheet' type='text/css'>
 		
 		<link href='http://fonts.googleapis.com/css?family=Roboto:400,300,500' rel='stylesheet' type='text/css'>
@@ -25,6 +29,20 @@
 		<link rel="stylesheet" type="text/css" href="assets/css/font-awesome.min.css">
 		<link rel="stylesheet" type="text/css" href="assets/css/main.css">
 		<link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,300' rel='stylesheet' type='text/css'>
+
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700&display=swap" rel="stylesheet">
+		
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E=" crossorigin="anonymous"></script>
+
+		<script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-storage.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-database.js"></script>
+
+
+
+
 	</head>
 
 	<body>
@@ -56,6 +74,8 @@
 							<li><a href="faq.html">FAQs</a></li>
 							<li><a href="gallery.html">Gallery</a></li>
 							<li><a href="contact.html">Contact Us</a></li>
+							<li><a id="btn-logout" href="#">Logout</a></li>
+
 				      	</ul>
 				    </div><!-- navbar-collapse -->
 				</div><!-- container-fluid -->
@@ -430,7 +450,7 @@
 				<div class="row">
 					<div class="col-md-12">
 						<div class="copy-right-text text-center">
-							&copy; Copyright 2014, Your Website Link. Theme by <a href="https://themewagon.com/">ThemeWagon</a>
+							<!-- &copy; Copyright 2014, Your Website Link. Theme by <a href="https://themewagon.com/">ThemeWagon</a> -->
 						</div>
 					</div>
 				</div>
@@ -446,6 +466,8 @@
 		<script>
       		new WOW().init();
 		</script>
+<!-- <script src="fireBase.js"></script>
+<script src="login.js"></script> -->
 
 		<script>
 			$(document).ready(function() {
@@ -459,7 +481,7 @@
 			});
 		</script>
 
-
+		<script src="js/index.js"></script>
 		<script>
 			$( function() {
 				  // init Isotope
@@ -492,5 +514,20 @@
 			});
 		</script>
 
+		<script>
+			
+			$("#btn-logout").click(function(){
+    			firebase.auth().signOut();
+  			});
+        	firebase.auth().onAuthStateChanged(function(user)
+        	{
+				if(!user)
+				{
+                	window.location.href = "signin.html";
+            	}
+        });
+    </script>
+
+		</script>
 	</body>
 </html>

@@ -1,39 +1,43 @@
-/*
-Theme Name: HealthCare
-Theme URI: http://themewagon.com/demo/HealthCare/
-Author: ThemeWagon
-Author URI: http://themewagon.com/
-Description: A responsive theme for commercial medical purpose. Built with HTML5, CSS3, Bootstrap framework. Google fonts, Font Awesome Icon integrated
-Version: 1.1.2014.11
-License: GNU General Public License v3
-License URI: http://www.gnu.org/licenses/gpl-3.0.txt
-Tags: responsive layout, multiple-page, parallax 
-Text Domain:
-*/
 
-/**
- * Table of Contents:
- *
- * 1. - Home
-        1.1 - heading-slider
-        1.2 - starting-text
-        1.3 - reason for choice
-        1.4 - testimonial
- * 2. - Service
- * 3. - Doctor
-        3.1 - doctor-list
-        3.2 - job
- * 4. - Blog
- * 5. - FAQ
- * 6. - Gallery
- * 7. - Contact
- * -----------------------------------------------------------------------------
- */
 
  * {outline: none !important;}
 
 
 /*============================================Global============================================ */
+
+/* input,button{
+    font-family: Nunito,sans-serif;
+
+} */
+/* #logbody{
+    width: 20%;
+    margin: 0px, auto;
+    margin-top: 150px;
+    margin-left: 480px;
+    padding: 20px;
+}
+input{
+    display: block;
+    border: 1px,solid,#ccc;
+    border-radius: 5px;
+    background: #fff;
+    padding: 15px;
+    outline: none;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+button{
+    background: #5d8ffc;
+    color:#fff;
+    border:0px;
+    border-radius: 5px;
+    padding: 15px;
+    display: block;
+    width: 100%;
+} */
+
+
 ul li
 {
     list-style: none;
