@@ -99,3 +99,52 @@ $("#btn-resetPassword").click(function(){
       window.alert("Please enter your Email first !!");
     }
 });
+
+$("#btn-update").click(function(){
+  var fname  = $("#firstname").val();
+  var sname  = $("#secondname").val();
+  var country  = $("#country").val();
+  var phone  = $("#phone").val();
+  var gender  = $("#gender").val();
+  var address  = $("#address").val();
+
+  var rootRef = firebase.database().ref().child("Users");
+  var userID = firebase.auth().currentUser.uid;
+  var usersRef = rootRef.child(userID);
+  
+  if(fname != "" && sname != "" && country != "" && phone != "" && gender != "" && address != "")
+  {
+    var userData=
+    {
+        "firstname":fname,
+        "secondname":sname,
+        "country":country,
+        "phone":phone,
+        "gender":gender,
+        "address":address,
+    };
+
+    usersRef.set(userData,function(error){
+      if(error){
+        var errorCode = error.code;
+        var errorMessage = error.message;
+
+        console.log("ErrorCode " + errorcode);
+        console.log("Error Message " + errormessage);
+
+        window.alert(errorMessage);
+      }
+      else{
+          window.alert("Congrulations " + fname + ", you have successfully registered :)");
+          window.location.href="MainPage.html";
+      }
+    });
+  }
+  else
+  {
+    window.alert("Please fill all the fields.");
+  }
+
+  
+
+});

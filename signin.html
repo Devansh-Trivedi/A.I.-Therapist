@@ -25,7 +25,9 @@
     <div class="wrapper" style="background-image: url('design_files/images/loginback.jpg')">
         <div class="inner">
             <div class="image-holder">
-                <img src="design_files/images/login.jpg" alt="">
+                <h2 style="text-align: center; text-decoration: solid;">Shikan</h3>
+
+                <img src="design_files/images/logindocter.jpg" alt="">
             </div>
             <form action="">
                 <h3>Login</h3>
@@ -55,7 +57,7 @@
                 </div>
 
                 <div class="w-full text-center" style="margin-top: 66%; font-size: 15px;">
-                    <a href="index.html" class="text-dark">
+                    <a href="signup.html" class="text-dark">
                         Not have an Account ? Sign Up
                     </a>
                 </div>
@@ -68,9 +70,20 @@
     <script>
         firebase.auth().onAuthStateChanged(function(user)
         {
-            if(user){
-                window.location.href = "MainPage.html";
-            }
+            var userID = firebase.auth().currentUser.uid;
+
+                firebase.database().ref('User/' + userID).once('value').then(function(snapshot){
+                    if(snapshot.val()){
+                        window.location.href = "MainPage.html";
+                        window.alert("Welcome Back, Shikan is please to help you.");
+
+                    }
+                    else{
+
+                        window.location.href = "accountSettings.html";
+
+                    }
+                });
         });
     </script>
 </body>

@@ -20,6 +20,16 @@
 		<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
 		<link rel="stylesheet" type="text/css" href="assets/css/font-awesome.min.css">
 		<link rel="stylesheet" type="text/css" href="assets/css/main.css">
+		
+		<script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
+		<script src="js/index.js"></script>
+
+		<script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-storage.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-database.js"></script>
+
+
 	</head>
 
 	<body>
@@ -43,13 +53,15 @@
     		<!-- Collect the nav links, forms, and other content for toggling -->
 				    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				    	<ul class="nav navbar-nav navbar-right">
-					        <li><a href="index.html">Home</a></li>
-					        <li><a href="services.html">Services</a></li>
-					        <li class="active"><a href="#">Doctors</a></li>
-					        <li><a href="blog.html">Blog</a></li>
+							<li ><a href="MainPage.html">Home</a></li>
+							<li><a href="services.html">Services</a></li>
+							<li><a href="Recog.html">AI Emotion Recognition</a></li>
+					        <li class="active" ><a href="doctors.html">Doctors</a></li>
+							<li><a href="blog.html">Blog</a></li>
 							<li><a href="faq.html">FAQs</a></li>
 							<li><a href="gallery.html">Gallery</a></li>
 							<li><a href="contact.html">Contact Us</a></li>
+							<li><a id="btn-logout" href="#">Logout</a></li>
 				      	</ul>
 				    </div><!-- /.navbar-collapse -->
 				</div><!-- /.container-fluid -->
@@ -435,6 +447,20 @@
   		<script>
       		new WOW().init();
 		</script>
+			<script>
+				firebase.initializeApp(firebaseConfig);
+  
+			  $("#btn-logout").click(function(){
+				  firebase.auth().signOut();
+				});
+			  firebase.auth().onAuthStateChanged(function(user)
+			  {
+				  if(!user)
+				  {
+					  window.location.href = "signin.html";
+				  }
+			  });
+		  </script>
 
 	</body>
 </html>
