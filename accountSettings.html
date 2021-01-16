@@ -111,7 +111,8 @@
             window.alert("Email Verification link sent on your email address");
         }).catch(function(error) {
             // An error happened.
-            window.alert("An error occured please try again later.");
+            var error = error.message;
+            window.alert("An error occured please try again later." + error);
         });
         // window.alert("Hello "+ user)
         }
