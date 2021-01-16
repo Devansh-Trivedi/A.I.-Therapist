@@ -85,7 +85,17 @@
                         Update & Save    
                         <i class="zmdi zmdi-arrow-right"></i>
                     </button>
+                    <br>
+                    
+                    <button onclick="email_verify()" type="button">
+                       Verify Email   
+                    <i class="zmdi zmdi-arrow-right"></i>
+                    </button>
+                    
+                   
+
                 </div>
+                <p id="emailVerf">   </p>
                
             </form>
         </div>
@@ -93,13 +103,29 @@
     </div>
     <script src="js/index.js"></script>
     <script>
+       
+        function email_verify(){
+            var user = firebase.auth().currentUser;
+             user.sendEmailVerification().then(function() { 
+            // Email sent.
+            window.alert("Email Verification link sent on your email address");
+        }).catch(function(error) {
+            // An error happened.
+            window.alert("An error occured please try again later.");
+        });
+        // window.alert("Hello "+ user)
+        }
+       
         firebase.auth().onAuthStateChanged(function(user)
         {
             if(user){
-                
+                if(user != null){
+                    var user = firebase.auth().currentUser;
+                    var emailverefied = user.emailVerefied;
+                    document.getElementById("emailVerf").innerHTML = "Email Verified: " + emailverefied;
+                }
                 var userID = firebase.auth().currentUser.uid;
-
-                firebase.database().ref('Users/' + userID).once('value').then(function(snapshot){
+                 firebase.database().ref('Users/' + userID).once('value').then(function(snapshot){
                     if(snapshot.val()){
                         window.location.href = "MainPage.html";
                         window.alert("Welcome Back " + fname +  " , Shikan is please to help you.");

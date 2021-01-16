@@ -63,9 +63,15 @@
     <script>
         firebase.auth().onAuthStateChanged(function(user)
         {
+            
             if(user){
                 var userID = firebase.auth().currentUser.uid;
-
+               
+                // if(user != null){
+                //     var user = firebase.auth().currentUser;
+                //     var emailverefied = user.emailVerefied;
+                //     document.getElementById("emailVerf").innerHTML = "Email Verified: " + emailverefied;
+                // }
                 firebase.database().ref('User/' + userID).once('value').then(function(snapshot){
                     if(snapshot.val()){
                         window.location.href = "MainPage.html";
@@ -75,7 +81,9 @@
                     else{
 
                         window.location.href = "accountSettings.html";
-
+                        var user = firebase.auth().currentUser;
+                        var emailverefied = user.emailVerefied;
+                        document.getElementById("emailVerf").innerHTML = "Email Verified: " + emailverefied;
                     }
                 });
                 
