@@ -19,7 +19,7 @@
         <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-auth.js"></script>
         <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-storage.js"></script>
         <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-database.js"></script>
-
+       
         <!-- <script src="js/index.js"></script> -->
 </head>
 <body>
@@ -80,7 +80,7 @@
                     }
                     else{
 
-                        window.location.href = "accountSettings.html";
+                        window.location.href = "MainPage.html";
                         var user = firebase.auth().currentUser;
                         var emailverefied = user.emailVerefied;
                         document.getElementById("emailVerf").innerHTML = "Email Verified: " + emailverefied;
